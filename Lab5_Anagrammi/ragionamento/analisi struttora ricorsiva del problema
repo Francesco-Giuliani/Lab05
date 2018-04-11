@@ -1,0 +1,48 @@
+Data una parola di n lettere, in un passo generico della ricorsione al livello i mi ritrovo
+ad avere una soluzione parziale contenente una particolare permutazione delle prime i lettere 
+ed n-i caratteri da riempire "permutando" le lettere rimanenti.
+
+1. Un livello dunque è il punto in cui ho fissato un certo numero di caratteri e devo permutare ancora i caratteri 
+rimanenti che non ho ancora fissato nei livelli precedenti.
+
+2. Una soluzione parziale è una stringa/insieme di caratteri/array/lista che contiene un numero di caratteri
+pari a al livello in cui mi trovo e devo aggiungere una permutazione particolare dei caratteri successivi
+
+3. Una soluzione parziale è completa se è formata da un numero di caratteri pari a quello della parola iniziale
+
+4.Per definire se una soluzione parziale sia valida devo prima conoscere le regole specifiche che voglio adottare:
+	- se voglio che le permutazioni della parola di partenza siano valide in un qualche vocabolario allora la regola 
+	di validità di una soluzione parziale sarà che questa sia presente nel dizionario
+	- se invece non mi interessa ottenere parole esistenti allora ogni soluzione completa sarà valida e quindi
+	non ci saranno soluzioni parziali che mi portano a soluzioni non valide
+	
+5. vedi 4
+
+6. A partire dal livello i, per generare soluzioni del livello i+1, prenderò la soluzione parziale del livello i
+e ci aggiungerò un carattere in più: il valore di questo carattere sarà per  vari rami di soluzioni parziali
+che andrò a generare uno dei caratteri componenti la parola di partenza ma che non sono stati inclusi nella soluzione
+parziale del livello i
+
+7. La struttura dati per memorizzare una soluzione parziale/completa potrebbe essere un array di caratteri o un 
+ArrayList di caratteri al quale mano a mano aggiungo i vari caratteri
+
+8. La struttura dati per memorizzare lo stato della ricorsione potrebbe essere un ArrayList di Stringhe
+
+
+STRUTTURA DELLA RCORSIONE
+
+private void recursive(livello, sol parziale, stato){
+	
+	//E operazioni generiche da fare sempre
+	//Ad esempio check di esistenza in dizionario
+	
+	//A CONDIZIONI DI TERMINAZIONE
+	//ho generato tutte le possibili permutazioni della parola data
+	
+	//B genero una nuova soluzione parziale
+	
+	//C chiamo di nuovo la ricorsione al livello i+1
+	
+	//D backtracking dal livello corrente (ad es. i) al livello i-1
+	
+	}
