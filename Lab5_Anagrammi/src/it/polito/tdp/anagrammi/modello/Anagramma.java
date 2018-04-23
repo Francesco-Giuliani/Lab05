@@ -5,37 +5,42 @@ import java.util.List;
 
 public class Anagramma {
 	
-	List<Character> parolaDipartenza;
-	List<Character> disponibili;
 	List<Character> anagramma;
+	List<Character> disponibili;
 	
-	public Anagramma(List<Character> parola) {
-		this.parolaDipartenza = parola;
-		this.disponibili = new LinkedList<>();
+	public Anagramma(List<Character> listaCaratteriParola) {
 		this.anagramma = new LinkedList<>();
+		this.disponibili = new LinkedList<>(listaCaratteriParola);
 	}
 	
 	public Anagramma(Anagramma altro) {
-		this.parolaDipartenza = altro.parolaDipartenza;
-		this.disponibili = new LinkedList<>(altro.disponibili);
 		this.anagramma = new LinkedList<>(altro.anagramma);
+		this.disponibili = new LinkedList<>(altro.disponibili);
 	}
 
 	@Override
 	public String toString() {
-		String risultato = null;
-		for(Character l : this.anagramma)
-			risultato  += l;
-		return risultato;
+		StringBuilder sb = new StringBuilder();
+		for(Character c : this.anagramma)
+			sb.append(c);
+		return sb.toString();
 	}
-	public String toStringInfo() {
-		String anagramma = null, disponibili = null ;
-		for(Character l : this.anagramma)
-			anagramma  += l;
-		for(Character l : this.disponibili)
-			disponibili  += l;
-		return "anagramma: "+anagramma+", disponibili: "+disponibili;
+	public List<Character> getAnagramma() {
+		return anagramma;
 	}
 	
+	public void add(Character c) {
+		this.anagramma.add(c);
+		this.disponibili.remove(c);
+	}
+	public void removeLast() {
+		Character c = this.anagramma.get(this.anagramma.size()-1);
+		this.disponibili.add(c);
+		this.anagramma.remove(this.anagramma.size()-1);
+	}
+
+	public List<Character> getDisponibili() {
+		return this.disponibili;
+	}
 	
 }

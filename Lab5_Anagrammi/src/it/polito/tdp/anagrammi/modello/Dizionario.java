@@ -1,5 +1,6 @@
 package it.polito.tdp.anagrammi.modello;
 
+import java.util.ArrayList;
 import java.util.List;
 import it.polito.tdp.anagrammi.DAO.*;
 
@@ -11,23 +12,16 @@ public class Dizionario {
 	//CONSTRUCTOR
 	public Dizionario() {
 		this.dizionarioDAO = new DizionarioDAO();
+		this.dizionario = new ArrayList<>(this.dizionarioDAO.getDizionario());
 	}
 	
 	//METODI VARI
-//	public boolean isInDizionario(String parola) {
-//		
-//		// OPZIONE 1 FACCIO IN QUESTA CLASSE --> lavora java
-////		for(String s: this.dizionario) {
-////			if(s.compareTo(parola)==0)
-////				return true;
-////		}
-////		return false;
-////		
-//		//OPZIONE 2 FACCIO LAVORARE IL DATABASE
-//		
-//		 return this.dizionarioDAO.contieneParola(parola);
-//	}
-//	
+	public boolean contains(String parola) {		
+		//FACCIO LAVORARE IL DATABASE
+		
+		return this.dizionarioDAO.contieneParola(parola);
+	}
+
 
 	//UTILITIES
 	

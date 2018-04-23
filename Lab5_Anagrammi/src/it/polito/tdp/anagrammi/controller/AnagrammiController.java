@@ -47,7 +47,6 @@ public class AnagrammiController {
     		this.txtAnagrammiCorretti.appendText("Parola non valida. Inserire una parola.");
     		return;
     	}
-    	//TODO gestione stringa --> rimuovo tutti i caratteri strani e la converto tutta in minuscolo.
     	
     	this.model.generaAnagrammi(parola);
     	

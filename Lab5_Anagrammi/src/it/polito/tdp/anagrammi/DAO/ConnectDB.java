@@ -7,8 +7,8 @@ public class ConnectDB {
 	private String percorsoDB;
 	private Connection conn;
 	
-	public ConnectDB(String percorsoDB) {
-		this.percorsoDB = percorsoDB;
+	public ConnectDB() {
+		this.percorsoDB = "jdbc:mysql://localhost:3306/dizionario?user=root";
 		
 		try {
 			this.conn = DriverManager.getConnection(percorsoDB);
